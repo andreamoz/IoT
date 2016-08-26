@@ -16,6 +16,8 @@ int pinSensore = A0;
 
 String dati = "";
 
+EthernetClient client;
+
 void setup() {
   // introduciamo un ritardo per assicurarci che tutto sia pronto
   // prima di provare a far partire la rete
@@ -40,4 +42,13 @@ void loop() {
 
 void aggiornaDatiRemoti(String dati){
   Serial.println(dati);
+  if (client.connect("10.0.1.90/IoT/aggiornaDati.php", 80)) {
+    Serial.println("Collegamento riuscito");
+  } else {
+    Serial.println("Collegamento NON riuscito");
+  }
+
+  if (client.connected()) {
+    client.stop();
+  }
 }
