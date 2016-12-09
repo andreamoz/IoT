@@ -1,11 +1,5 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["temperatura"])) {
-  $temperatura = verifica($_GET["temperatura"]);
-  aggiornaFile("temperatura.txt", $temperatura);
-  echo "OK";
-}
-
 function verifica($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -18,4 +12,11 @@ function aggiornaFile($nome_file, $valore) {
 	fwrite($file_dati, $valore);
 	fclose($file_dati);
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["temperatura"])) {
+  $temperatura = verifica($_GET["temperatura"]);
+  aggiornaFile("temperatura.txt", $temperatura);
+  echo "OK";
+}
+
 ?>
