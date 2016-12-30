@@ -6,11 +6,10 @@ void setup() {
 
 void loop() {
   int lettura = analogRead(pinSensore);
-  float tensione = lettura * 5000 / 1024;
+  float tensione = lettura * 5000.0 / 1024;
   float temperatura = (tensione - 500) / 10;
 
   Serial.println(temperatura);
 
   delay(1000);
 }
-
