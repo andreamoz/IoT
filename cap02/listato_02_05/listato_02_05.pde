@@ -5,7 +5,7 @@ void setup(){
 }
 
 void draw(){
-  saveStrings("C:/wamp/www/IoT/temperatura.txt", temperatura);
+  saveStrings("C:/wamp64/www/IoT/temperatura.txt", temperatura);
   
   delay(1000);
 }

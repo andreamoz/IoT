@@ -31,5 +31,5 @@ void serialEvent(Serial porta){
   datoLetto = trim(datoLetto);
   temperatura[0] = datoLetto;
   // salva la temperatura sul file che verrà letto dalla pagina web
-  saveStrings("C:/wamp/www/IoT/temperatura.txt", temperatura);
+  saveStrings("C:/wamp64/www/IoT/temperatura.txt", temperatura);
 }
