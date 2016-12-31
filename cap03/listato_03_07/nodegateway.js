@@ -2,7 +2,7 @@ var querystring = require('querystring');
 var http = require('http');
 var serialport = require('serialport');
 
-var nomeporta = 'COM11';
+var nomeporta = 'COM3';
 
 var portaSeriale = new serialport.SerialPort(nomeporta, {
     baudRate: 9600,
@@ -20,7 +20,7 @@ function PostCode(codestring) {
   var opzioni = {
       host: 'localhost',
       port: '80',
-      path: '/iot/aggiornaDati.php',
+      path: '/IoT/aggiornaDati.php',
       method: 'POST',
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

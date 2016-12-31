@@ -1,5 +1,5 @@
 var serialport = require('serialport');
-var nomeporta = 'COM11';
+var nomeporta = 'COM3';
 
 var portaSeriale = new serialport.SerialPort(nomeporta, {
     baudRate: 9600,
