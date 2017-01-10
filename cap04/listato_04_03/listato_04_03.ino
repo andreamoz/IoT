@@ -4,11 +4,11 @@
 // indirizzo MAC dello shield Ethernet
 byte mac[] = {0x90, 0xA2, 0xDA, 0x09, 0x00, 0x93};
 // indirizzo IP che vogliamo assegnare al dispositivo
-byte ip[] = {10, 0, 1, 69};
+byte ip[] = {192, 168, 1, 21};
 // indirizzo IP del server dns (di solito il router)
-byte ip_dns[] = {10, 0, 1, 47};
+byte ip_dns[] = {192, 168, 1, 1};
 // indirizzo IP del gateway (di solito il router)
-byte ip_gateway[] = {10, 0, 1, 253};
+byte ip_gateway[] = {192, 168, 1, 1};
 // maschera di rete
 byte subnet[] = {255, 255, 255, 0};
 
@@ -29,7 +29,7 @@ void setup() {
 
 void loop() {
   int lettura = analogRead(pinSensore);
-  float tensione = lettura * 5000 / 1024;
+  float tensione = lettura * 5000.0 / 1024;
   float temperatura = (tensione - 500) / 10;
 
   dati = "temperatura=";
@@ -42,7 +42,7 @@ void loop() {
 
 void aggiornaDatiRemoti(String dati){
   Serial.println(dati);
-  if (client.connect("10.0.1.90/IoT/aggiornaDati.php", 80)) {
+  if (client.connect("192.168.1.5/IoT", 80)) {
     Serial.println("Collegamento riuscito");
   } else {
     Serial.println("Collegamento NON riuscito");
